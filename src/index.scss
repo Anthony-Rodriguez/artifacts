@@ -1,1 +1,18 @@
+$primary: #6d1cc8;
 @import '~bootstrap/scss/bootstrap';
+@font-face {
+  font-family: 'DancingScript';
+  font-weight: normal;
+  src: local('DancingScript'),
+  url('./fonts/DancingScript-VariableFont_wght.ttf') format('truetype');
+}
+
+html {
+  height: 100%;
+  margin: auto;
+  max-width: 1200px;
+}
+
+.page-name {
+  font-family: DancingScript;
+}
