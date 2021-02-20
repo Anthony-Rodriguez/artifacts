@@ -13,6 +13,29 @@ html {
   max-width: 1200px;
 }
 
+ul {
+  padding-left: 0;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+}
+
 .page-name {
   font-family: DancingScript;
+}
+
+.no-pad-sides {
+  padding: 0;
+}
+
+.artifact-name {
+  color: $primary;
+  font-weight: bold;
+}
+
+.artifact-info {
+  border-style: dotted double solid;
+  margin-top: 5px;
 }

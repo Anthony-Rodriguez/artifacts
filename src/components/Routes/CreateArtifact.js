@@ -11,9 +11,9 @@ class CreateArtifact extends Component {
     this.state = {
       artifact: {
         name: '',
-        category: '',
-        rarity: '',
-        attunement: null,
+        category: '1',
+        rarity: '1',
+        attunement: false,
         description: ''
       },
       createdId: null
@@ -22,13 +22,12 @@ class CreateArtifact extends Component {
   handleInputChange = event => {
     event.persist()
     const target = event.target
-    const value = target.type === 'checkbox' ? target.checked : target.value
-    const name = target.name
-    // const updatedField = {
-    //   [target.name]: target.value
-    // }
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value
+    const updatedField = {
+      [target.name]: value
+    }
     this.setState(() => {
-      const newArtifact = Object.assign({}, this.state.artifact, ([name]: value))
+      const newArtifact = Object.assign({}, this.state.artifact, updatedField)
       return { artifact: newArtifact }
     })
   }

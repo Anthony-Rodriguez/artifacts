@@ -9,7 +9,9 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-
+import CreateArtifact from './components/Routes/CreateArtifact'
+import ShowArtifact from './components/Routes/ShowArtifact'
+import IndexArtifacts from './components/Routes/IndexArtifacts'
 class App extends Component {
   constructor (props) {
     super(props)
@@ -64,6 +66,15 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute path='/create-artifact' user={user} component={CreateArtifact} render={({ match }) => (
+            <CreateArtifact msgAlert={this.msgAlert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute exact path='/artifacts/:id/' user={user} render={({ match }) => (
+            <ShowArtifact msgAlert={this.msgAlert} user={user} match={match} />
+          )} />
+          <AuthenticatedRoute exact path='/artifacts/' user={user} component={IndexArtifacts} render={() => (
+            <IndexArtifacts msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>

@@ -54,11 +54,10 @@ const ArtifactForm = ({ handleSubmit, handleInputChange, artifact }) => (
       </Form.Control>
     </Form.Group>
     <Form.Group controlId="attunement">
-      <Form.Label>Attunement Required</Form.Label>
       <Form.Check
-        required
         type="checkbox"
-        id="attunement-check"
+        name="attunement"
+        label="Requires Attunement"
         value={artifact.attunement}
         onChange={handleInputChange}
       />
