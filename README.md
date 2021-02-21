@@ -1,4 +1,4 @@
-[Preview](https://i.imgur.com/gkuiOQl.png)
+![Preview](https://i.imgur.com/gkuiOQl.png)
 # Artifacts Client
 
 Use ReactJS to create an archive of custom artifacts. This repo is for the front-end [deployed site](https://anthony-rodriguez.github.io/artifacts/) and speaks with the [back-end](https://github.com/Anthony-Rodriguez/artifacts-api) that was designed for this.
