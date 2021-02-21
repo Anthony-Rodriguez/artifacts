@@ -12,6 +12,8 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import CreateArtifact from './components/Routes/CreateArtifact'
 import ShowArtifact from './components/Routes/ShowArtifact'
 import IndexArtifacts from './components/Routes/IndexArtifacts'
+import UpdateArtifact from './components/Routes/UpdateArtifact'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -75,6 +77,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute exact path='/artifacts/' user={user} component={IndexArtifacts} render={() => (
             <IndexArtifacts msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute exact path='/update-artifact/:id' user={user} render={({ match }) => (
+            <UpdateArtifact msgAlert={this.msgAlert} user={user} match={match}/>
           )} />
         </main>
       </Fragment>

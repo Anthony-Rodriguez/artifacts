@@ -69,12 +69,11 @@ class ShowArtifact extends Component {
     } else {
       artifactJsx = (
         <Fragment>
-          <h2>{artifact.name}</h2>
-          <p>Category: {artifact.category}</p>
-          <p>Rarity: {artifact.rarity}</p>
-          <p>Requires Attunement: {artifact.attunement}</p>
-          <br></br>
-          <p>Description: {artifact.description}</p>
+          <h2><b>{artifact.name}</b></h2>
+          <p><i>Category</i>: {artifact.category}</p>
+          <p><i>Rarity</i>: {artifact.rarity}</p>
+          <p><i>Requires Attunement</i>: {String(artifact.attunement)}</p>
+          <p><i>Description</i>: {artifact.description}</p>
           <Button onClick={this.deleteArtifact}>Delete</Button>
           <Button variant="outline-primary"><Link to={`/update-artifact/${artifact.id}/`}>Update</Link></Button>
         </Fragment>
@@ -83,7 +82,7 @@ class ShowArtifact extends Component {
     return (
       <Fragment>
         <div className="row">
-          <div className="col-sm-10 col-md-8 mx-auto mt-5">
+          <div className="col-12 mx-auto mt-3">
             {artifactJsx}
           </div>
         </div>

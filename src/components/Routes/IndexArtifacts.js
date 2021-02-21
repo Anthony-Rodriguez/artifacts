@@ -57,7 +57,7 @@ class IndexArtifacts extends Component {
             <p>{artifact.category}</p>
           </div>
           <div className="artifact-attunement col-3">
-            <p>Attunment Requirement:{artifact.attunement}</p>
+            <p>Attunment Requirement: { String(artifact.attunement)}</p>
           </div>
           <div className="artifact-description col-4">
             <p>{artifact.description}</p>
