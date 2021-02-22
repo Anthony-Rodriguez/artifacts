@@ -78,8 +78,8 @@ class App extends Component {
           <AuthenticatedRoute exact path='/artifacts/' user={user} component={IndexArtifacts} render={() => (
             <IndexArtifacts msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute exact path='/update-artifact/:id' user={user} render={({ match }) => (
-            <UpdateArtifact msgAlert={this.msgAlert} user={user} match={match}/>
+          <AuthenticatedRoute exact path='/update-artifact/:id' user={user} component={ShowArtifact} render={({ match }) => (
+            <UpdateArtifact msgAlert={this.msgAlert} user={user} match={match} />
           )} />
         </main>
       </Fragment>

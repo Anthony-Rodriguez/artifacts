@@ -1,11 +1,15 @@
 $primary: #6d1cc8;
-$common: #000;
+$common: #fff;
 $uncommon: #2fc647;
 $rare: #009cff;
 $very-rare: #6d1cc8;
-$legendary: #d7a800;
+$legendary: #ffc805;
 $artifact: #ba6236;
 $unknown: #747474;
+$background-top: #6d1cc8;
+$background-bottom: #090979;
+$font-color: #fff;
+
 
 @import '~bootstrap/scss/bootstrap';
 @font-face {
@@ -20,6 +24,13 @@ html {
   height: 100%;
   margin: auto;
   max-width: 1400px;
+}
+
+body {
+  background: linear-gradient(180deg, $background-top 20%, $background-bottom 100%);
+  background-attachment: fixed;
+  color: $font-color;
+  height: 100%;
 }
 
 ul {
@@ -41,11 +52,17 @@ ul {
 }
 
 .artifact-name {
-  font-weight: bold;
+  font-family: DancingScript;
+  font-size: 1.4rem;
+  font-weight: bolder;
 
   p {
     margin-bottom: 0;
   }
+}
+
+.artifact-rarity {
+  font-size: .9rem;
 }
 
 .artifact-info {
@@ -58,6 +75,23 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
+}
+
+.btn-outline-primary {
+  a {
+    color: $font-color;
+  }
+}
+
+.form-check {
+  input {
+    padding: 10px;
+    transform: scale(2);
+  }
+}
+
+.form-check-input {
+  margin-top: 15px;
 }
 
 .common-color {
@@ -74,6 +108,7 @@ ul {
 
 .very-rare-color {
   color: $very-rare;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); 
 }
 
 .legendary-color {

@@ -77,7 +77,7 @@ class ShowArtifact extends Component {
     } else {
       artifactJsx = (
         <Fragment>
-          <span className={`${rarityColor}`}>
+          <span className={`artifact-name ${rarityColor}`}>
             <h2><b>{artifact.name}</b></h2>
           </span>
           <p><i>Category</i>: {artifact.category_display}</p>
@@ -85,7 +85,21 @@ class ShowArtifact extends Component {
           <p><i>Requires Attunement</i>: {String(artifact.attunement)}</p>
           <p><i>Description</i>: {artifact.description}</p>
           <Button onClick={this.deleteArtifact}>Delete</Button>
-          <Button variant="outline-primary"><Link to={`/update-artifact/${artifact.id}/`}>Update</Link></Button>
+          <Button variant="outline-primary">
+            <Link to={{
+              pathname: `/update-artifact/${artifact.id}/`,
+              state: {
+                artifact: {
+                  attunement: artifact.attunement,
+                  category: artifact.category,
+                  description: artifact.description,
+                  id: artifact.id,
+                  name: artifact.name,
+                  rarity: artifact.rarity
+                }
+              } }}>Update
+            </Link>
+          </Button>
         </Fragment>
       )
     }
