@@ -61,6 +61,14 @@ class ShowArtifact extends Component {
   render () {
     let artifactJsx
     const { artifact, deleted } = this.state
+    const rarityColor = artifact === null ? '' : (
+      artifact.rarity === '1' ? 'common-color' : (
+        artifact.rarity === '2' ? 'uncommon-color' : (
+          artifact.rarity === '3' ? 'rare-color' : (
+            artifact.rarity === '4' ? 'very-rare-color' : (
+              artifact.rarity === '5' ? 'legendary-color' : (
+                artifact.rarity === '6' ? 'artifact-color' : 'unknown-rarity-color'
+              ))))))
     if (deleted) {
       return <Redirect to="/artifacts/"/>
     }
@@ -69,9 +77,11 @@ class ShowArtifact extends Component {
     } else {
       artifactJsx = (
         <Fragment>
-          <h2><b>{artifact.name}</b></h2>
-          <p><i>Category</i>: {artifact.category}</p>
-          <p><i>Rarity</i>: {artifact.rarity}</p>
+          <span className={`${rarityColor}`}>
+            <h2><b>{artifact.name}</b></h2>
+          </span>
+          <p><i>Category</i>: {artifact.category_display}</p>
+          <p><i>Rarity</i>: {artifact.rarity_display}</p>
           <p><i>Requires Attunement</i>: {String(artifact.attunement)}</p>
           <p><i>Description</i>: {artifact.description}</p>
           <Button onClick={this.deleteArtifact}>Delete</Button>

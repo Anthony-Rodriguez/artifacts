@@ -40,30 +40,38 @@ class IndexArtifacts extends Component {
     } else if (this.state.artifacts === 0) {
       artifactJsx = 'You realize you haven\'t made anything ... right?'
     } else {
-      console.log(this.state.artifacts)
-      const artifactList = this.state.artifacts.map(artifact => (
-        <div key={artifact.id} className="row artifact-info">
-          <div className="artifact-name-rarity col-3">
-            <Link to={`/artifacts/${artifact.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <span className="artifact-name">
-                <p>{artifact.name}</p>
+      const artifactList = this.state.artifacts.map(artifact => {
+        const rarityColor = artifact.rarity === '1' ? 'common-color' : (
+          artifact.rarity === '2' ? 'uncommon-color' : (
+            artifact.rarity === '3' ? 'rare-color' : (
+              artifact.rarity === '4' ? 'very-rare-color' : (
+                artifact.rarity === '5' ? 'legendary-color' : (
+                  artifact.rarity === '6' ? 'artifact-color' : 'unknown-rarity-color'
+                )))))
+        return (
+          <div key={artifact.id} className="row artifact-info">
+            <div className="artifact-name-rarity col-3">
+              <Link to={`/artifacts/${artifact.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <span className={`artifact-name ${rarityColor}`}>
+                  <p>{artifact.name}</p>
+                </span>
+              </Link>
+              <span className="artifact-rarity">
+                <p><i>{artifact.rarity_display}</i></p>
               </span>
-            </Link>
-            <span className="artifact-rarity">
-              <p>{artifact.rarity}</p>
-            </span>
+            </div>
+            <div className="artifact-category col-2">
+              <p>{artifact.category_display}</p>
+            </div>
+            <div className="artifact-attunement col-3">
+              <p>Attunment Requirement: { String(artifact.attunement)}</p>
+            </div>
+            <div className="artifact-description col-4">
+              <p>{artifact.description}</p>
+            </div>
           </div>
-          <div className="artifact-category col-2">
-            <p>{artifact.category}</p>
-          </div>
-          <div className="artifact-attunement col-3">
-            <p>Attunment Requirement: { String(artifact.attunement)}</p>
-          </div>
-          <div className="artifact-description col-4">
-            <p>{artifact.description}</p>
-          </div>
-        </div>
-      ))
+        )
+      })
       artifactJsx = (
         <ul>
           {artifactList}

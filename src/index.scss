@@ -1,4 +1,12 @@
 $primary: #6d1cc8;
+$common: #000;
+$uncommon: #2fc647;
+$rare: #009cff;
+$very-rare: #6d1cc8;
+$legendary: #d7a800;
+$artifact: #ba6236;
+$unknown: #747474;
+
 @import '~bootstrap/scss/bootstrap';
 @font-face {
   font-family: 'DancingScript';
@@ -33,7 +41,6 @@ ul {
 }
 
 .artifact-name {
-  color: $primary;
   font-weight: bold;
 
   p {
@@ -51,4 +58,32 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
+}
+
+.common-color {
+  color: $common;
+}
+
+.uncommon-color {
+  color: $uncommon;
+}
+
+.rare-color {
+  color: $rare;
+}
+
+.very-rare-color {
+  color: $very-rare;
+}
+
+.legendary-color {
+  color: $legendary;
+}
+
+.artifact-color {
+  color: $artifact;
+}
+
+.unknown-rarity-color {
+  color: $unknown;
 }
