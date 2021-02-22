@@ -9,6 +9,7 @@ $unknown: #747474;
 $background-top: #6d1cc8;
 $background-bottom: #090979;
 $font-color: #fff;
+$shadow: rgba(0, 0, 0, .5);
 
 
 @import '~bootstrap/scss/bootstrap';
@@ -96,29 +97,35 @@ ul {
 
 .common-color {
   color: $common;
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .uncommon-color {
   color: $uncommon;
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .rare-color {
   color: $rare;
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .very-rare-color {
   color: $very-rare;
-  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .legendary-color {
   color: $legendary;
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .artifact-color {
   color: $artifact;
+  text-shadow: 0 2px 2px $shadow;
 }
 
 .unknown-rarity-color {
   color: $unknown;
+  text-shadow: 0 2px 2px $shadow;
 }
