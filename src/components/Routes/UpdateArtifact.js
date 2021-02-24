@@ -32,7 +32,6 @@ class UpdateArtifact extends Component {
     })
   }
   handleSubmit = event => {
-    console.log(this.props)
     event.preventDefault()
     const { user, msgAlert, match } = this.props
     const { artifact } = this.state
@@ -67,7 +66,6 @@ class UpdateArtifact extends Component {
         <div className="row">
           <div className="col-12 mx-auto mt-3">
             <h2>Work your magic!</h2>
-            {console.log(history)}
             <ArtifactForm
               artifact={this.state.artifact}
               handleSubmit={this.handleSubmit}
