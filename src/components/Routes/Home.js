@@ -4,7 +4,7 @@ import apiUrl from '../../apiConfig'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
-class IndexArtifacts extends Component {
+class Home extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ class IndexArtifacts extends Component {
   componentDidMount () {
     const { user, msgAlert } = this.props
     axios({
-      url: `${apiUrl}/artifacts/`,
+      url: `${apiUrl}/home/`,
       method: 'GET',
       headers: {
         'Authorization': `Token ${user.token}`
@@ -93,4 +93,4 @@ class IndexArtifacts extends Component {
   }
 }
 
-export default IndexArtifacts
+export default Home

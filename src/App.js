@@ -13,13 +13,15 @@ import CreateArtifact from './components/Routes/CreateArtifact'
 import ShowArtifact from './components/Routes/ShowArtifact'
 import IndexArtifacts from './components/Routes/IndexArtifacts'
 import UpdateArtifact from './components/Routes/UpdateArtifact'
+import Home from './components/Routes/Home'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      artifacts: null
     }
   }
 
@@ -57,6 +59,9 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <AuthenticatedRoute exact path='/home/' user={user} component={Home} render={() => (
+            <Home msgAlert={this.msgAlert} user={user} />
+          )} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
