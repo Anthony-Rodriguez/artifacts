@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ArtifactForm from '../Form/ArtifactForm'
@@ -9,16 +9,11 @@ class UpdateArtifact extends Component {
     super(props)
 
     this.state = {
-      artifact: {
-        name: '',
-        category: '1',
-        rarity: '1',
-        attunement: false,
-        description: ''
-      },
+      artifact: this.props.location.state.artifact,
       updated: false
     }
   }
+
   handleInputChange = event => {
     event.persist()
     const target = event.target
@@ -78,4 +73,4 @@ class UpdateArtifact extends Component {
   }
 }
 
-export default UpdateArtifact
+export default withRouter(UpdateArtifact)

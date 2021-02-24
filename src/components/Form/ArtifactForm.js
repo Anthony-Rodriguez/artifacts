@@ -58,6 +58,7 @@ const ArtifactForm = ({ handleSubmit, handleInputChange, artifact }) => (
         type="checkbox"
         name="attunement"
         label="Requires Attunement"
+        checked={artifact.attunement}
         value={artifact.attunement}
         onChange={handleInputChange}
       />
