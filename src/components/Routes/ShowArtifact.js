@@ -69,6 +69,25 @@ class ShowArtifact extends Component {
               artifact.rarity === '5' ? 'legendary-color' : (
                 artifact.rarity === '6' ? 'artifact-color' : 'unknown-rarity-color'
               ))))))
+    const createrDelete = artifact === null ? '' : (
+      artifact.owner === this.props.user.id ? <Button onClick={this.deleteArtifact}>Delete</Button> : '')
+    const createrUpdate = artifact === null ? '' : (
+      artifact.owner === this.props.user.id
+        ? <Button variant="outline-primary">
+          <Link to={{
+            pathname: `/update-artifact/${artifact.id}/`,
+            state: {
+              artifact: {
+                attunement: artifact.attunement,
+                category: artifact.category,
+                description: artifact.description,
+                id: artifact.id,
+                name: artifact.name,
+                rarity: artifact.rarity
+              }
+            } }}>Update
+          </Link>
+        </Button> : '')
     if (deleted) {
       return <Redirect to="/artifacts/"/>
     }
@@ -84,22 +103,8 @@ class ShowArtifact extends Component {
           <p><i>Rarity</i>: {artifact.rarity_display}</p>
           <p><i>Requires Attunement</i>: {String(artifact.attunement)}</p>
           <p><i>Description</i>: {artifact.description}</p>
-          <Button onClick={this.deleteArtifact}>Delete</Button>
-          <Button variant="outline-primary">
-            <Link to={{
-              pathname: `/update-artifact/${artifact.id}/`,
-              state: {
-                artifact: {
-                  attunement: artifact.attunement,
-                  category: artifact.category,
-                  description: artifact.description,
-                  id: artifact.id,
-                  name: artifact.name,
-                  rarity: artifact.rarity
-                }
-              } }}>Update
-            </Link>
-          </Button>
+          {createrDelete}
+          {createrUpdate}
         </Fragment>
       )
     }
